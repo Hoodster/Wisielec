@@ -20,7 +20,7 @@ namespace Wisielec
                 word = dictionary[rand.Next(dictionary.Length)];
                 for (int i = 0; i < word.Length; i++)
                 {
-                    answer = answer + "X";
+                    answer = answer + "-";
                 }
 
             }
@@ -33,38 +33,43 @@ namespace Wisielec
 
 
 
-           do { 
-               
-                int c = 0;
+            do {
+                int b = 0, c = 0;
                 Console.WriteLine(answer);
                 Console.WriteLine("Ilość błędów: {0}", mistakes);
                 Console.WriteLine("Podaj literę: ");
                 string chars = Console.ReadLine();
+                
+                
+                    
+               
 
-                if (word.ToLower().Contains(chars))
-                {
+             //   if (word.ToLower().Contains(chars))
+             //   {
                     for (int i = 0; i < word.Length; i++)
-                    {  
-                        int b = 0;
+                    {
+
                         if (word[i] == chars[0])
                         {
+                         b++;
                             try
                             {
                                 answer = answer.Substring(0, i) + chars + answer.Substring(i + 1);
-                            } catch (Exception e)
+                            }
+                            catch (Exception e)
                             {
 
-                            }
-                            b++;
-                        }
-                        if (b==0)
-                            mistakes++;
-                        }
-
+                            }                                              
                     }
-                               
-            }while (answer.Contains("X") == false);
-            Console.ReadKey();
-        }
+                    ++c;
+                    if (c == word.Length && b == 0)
+                        mistakes++;
+                }
+                } while (answer.Contains("-")) ;
+            Console.WriteLine(word);
+            Console.WriteLine("");
+            Console.WriteLine("Udało się!");
+                Console.ReadKey();
+            }
+         }
     }
-}

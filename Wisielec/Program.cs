@@ -18,9 +18,9 @@ namespace Wisielec
                 string[] dictionary = File.ReadAllLines(@"slownik.txt");
                 Random rand = new Random();
                 word = dictionary[rand.Next(dictionary.Length)];
-                for (int i = 0; i <= word.Length; i++)
+                for (int i = 0; i < word.Length; i++)
                 {
-                    answer = answer + "-";
+                    answer = answer + "X";
                 }
 
             }
@@ -33,29 +33,38 @@ namespace Wisielec
 
 
 
-            do
-            {
-                char[] wchar = word.ToCharArray();
+           do { 
+               
+                int c = 0;
                 Console.WriteLine(answer);
                 Console.WriteLine("Ilość błędów: {0}", mistakes);
                 Console.WriteLine("Podaj literę: ");
-                char[] chars = Console.ReadLine().ToCharArray();
+                string chars = Console.ReadLine();
 
-                if (word.ToLower().Contains(chars[1]))
+                if (word.ToLower().Contains(chars))
                 {
-                    for (int i = 0; i <= word.Length; i++)
-                    {
-                        if (wchar[i] == chars[1])
+                    for (int i = 0; i < word.Length; i++)
+                    {  
+                        int b = 0;
+                        if (word[i] == chars[0])
                         {
-                            
+                            try
+                            {
+                                answer = answer.Substring(0, i) + chars + answer.Substring(i + 1);
+                            } catch (Exception e)
+                            {
+
+                            }
+                            b++;
                         }
-                        else
-                        {
+                        if (b==0)
                             mistakes++;
                         }
+
                     }
-                }
-            } while (answer.ToLower().Contains("_") == false);
+                               
+            }while (answer.Contains("X") == false);
+            Console.ReadKey();
         }
     }
 }

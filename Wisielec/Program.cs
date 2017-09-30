@@ -33,6 +33,7 @@ namespace Wisielec
             }
             do {
                 int b = 0, c = 0;
+                Console.Clear();
                 Console.WriteLine(answer);
                 Console.WriteLine("Ilość błędów: {0}", mistakes);
                 Console.WriteLine("Podaj literę: ");

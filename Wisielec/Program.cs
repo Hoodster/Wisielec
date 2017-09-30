@@ -18,11 +18,12 @@ namespace Wisielec
                 string[] dictionary = File.ReadAllLines(@"slownik.txt");
                 Random rand = new Random();
                 word = dictionary[rand.Next(dictionary.Length)];
-                for (int i = 0; i < word.Length; i++)
+                for (int i = 0; i < (word.Length - 2); i++)
                 {
                     answer = answer + "-";
                 }
 
+                answer = word.Substring(0, 1) + answer + word.Substring((word.Length - 1));
             }
             catch (Exception e)
             {

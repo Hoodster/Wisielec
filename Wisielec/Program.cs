@@ -30,22 +30,12 @@ namespace Wisielec
                 Console.WriteLine(e.Message);
                 Console.ReadKey();
             }
-
-
-
             do {
                 int b = 0, c = 0;
                 Console.WriteLine(answer);
                 Console.WriteLine("Ilość błędów: {0}", mistakes);
                 Console.WriteLine("Podaj literę: ");
                 string chars = Console.ReadLine();
-                
-                
-                    
-               
-
-             //   if (word.ToLower().Contains(chars))
-             //   {
                     for (int i = 0; i < word.Length; i++)
                     {
 
@@ -57,9 +47,7 @@ namespace Wisielec
                                 answer = answer.Substring(0, i) + chars + answer.Substring(i + 1);
                             }
                             catch (Exception e)
-                            {
-
-                            }                                              
+                            {}                                              
                     }
                     ++c;
                     if (c == word.Length && b == 0)

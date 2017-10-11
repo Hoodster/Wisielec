@@ -27,7 +27,7 @@ namespace Wisielec
             }
             catch (Exception e)
             {
-                Console.WriteLine("Wystąpił błąd.");
+                Console.WriteLine("Wystąpił błąd odczytu pliku.");
                 Console.WriteLine(e.Message);
                 Console.ReadKey();
             }
@@ -38,6 +38,16 @@ namespace Wisielec
                 Console.WriteLine("Ilość błędów: {0}", mistakes);
                 Console.WriteLine("Podaj literę: ");
                 string chars = Console.ReadLine();
+                if (chars.Length != 1) {
+                    Console.Clear();
+                    Console.WriteLine(answer);
+                    Console.WriteLine("Ilość błędów: {0}", mistakes);
+                    Console.WriteLine("");
+                    Console.WriteLine("Błąd! Podaj jedną literę!");
+                    Console.WriteLine("Podaj literę: ");
+                    chars = Console.ReadLine();
+                }
+                                      
                     for (int i = 0; i < word.Length; i++)
                     {
 
@@ -49,7 +59,9 @@ namespace Wisielec
                                 answer = answer.Substring(0, i) + chars + answer.Substring(i + 1);
                             }
                             catch (Exception e)
-                            {}                                              
+                            { 
+                            Console.WriteLine("Pojawił się następujący błąd: {0}", e);
+                            }                                              
                     }
                     ++c;
                     if (c == word.Length && b == 0)

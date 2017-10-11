@@ -48,24 +48,24 @@ namespace Wisielec
                     chars = Console.ReadLine();
                 }
                                       
-                    for (int i = 0; i < word.Length; i++)
-                    {
+                for (int i = 0; i < word.Length; i++)
+                {
 
-                        if (word[i] == chars[0])
-                        {
-                         b++;
-                            try
-                            {
-                                answer = answer.Substring(0, i) + chars + answer.Substring(i + 1);
-                            }
-                            catch (Exception e)
-                            { 
-                            Console.WriteLine("Pojawił się następujący błąd: {0}", e);
-                            }                                              
-                    }
-                    ++c;
-                    if (c == word.Length && b == 0)
-                        mistakes++;
+                   if (word[i] == chars[0])
+                   {
+                      b++;
+                      try
+                      {
+                        answer = answer.Substring(0, i) + chars + answer.Substring(i + 1);
+                      }
+                      catch (Exception e)
+                      { 
+                       Console.WriteLine("Pojawił się następujący błąd: {0}", e);
+                      }                                              
+                   }
+                   ++c;
+                   if (c == word.Length && b == 0)
+                      mistakes++;
                 }
                 } while (answer.Contains("-")) ;
             Console.WriteLine(word);
